@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide Navigation Example</title>
+  <style>
+    /* Define styles for your slides */
+    .slide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Your slides -->
+  <div class="slide" id="slide1">Slide 1 Content</div>
+  <div class="slide" id="slide2">Slide 2 Content</div>
+  <div class="slide" id="slide3">Slide 3 Content</div>
+
+  <!-- Button to navigate to the next slide -->
+  <button onclick="navigateToNextSlide()">Next Slide</button>
+
+  <script>
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
+      });
+    }
+
+    function navigateToNextSlide() {
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+      showSlide(currentSlideIndex);
+    }
+
+    // Show the initial slide
+    showSlide(currentSlideIndex);
+  </script>
+
+</body>
+</html>
